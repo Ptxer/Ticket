@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Your existing custom colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    /* More root variables... */
+  }
+  :root {
+    --chart-1: 231, 100%, 56%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+ 
+  .dark {
+    --chart-1: 231, 100%, 56%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  /* Existing styles */
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+
+  th, td {
+    border: none; /* Removes borders between cells */
+    padding: 10px; /* Adds padding for spacing */
+    text-align: left; /* Aligns text to the left */
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row coloring for even rows */
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #fff; /* Default white for odd rows */
+  }
+}
+
+@layer utilities {
+  .bg-custom {
+    background-image: linear-gradient(45deg, #d2e4ff, #6a9eff, #3f5c92);
+    background-size: cover, cover;
+    background-position: center, center;
+    background-blend-mode: overlay;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .table-rounded{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .btn{
+    border-radius: 6px;
+    border: 2px;
+
+  }
+  .btn-logout{
+    background-color: red;
+  }
+  .form-border{
+    border-radius: 30px;
+    border: 2px;
+    
+  }
+  .input-border {
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+  .display-border{
+    border-radius: 10px;
+  }
+  .success{
+    border-color: green;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .destructive {
+    border-color: red;
+    background-color: red !important; /* This would override the color defined in toast.jsx */
+    color:#fff;
+    border-radius: 10px;
+  }
+
+  .wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('/wave-pattern.svg') no-repeat center;
+    background-size: cover;
+    opacity: 0.7;
+  }
+
+  .wave2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('/wave-pattern2.svg') no-repeat center;
+    background-size: cover;
+    opacity: 0.5;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
